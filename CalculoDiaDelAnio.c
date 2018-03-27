@@ -25,8 +25,8 @@ int main (void)
 {
 
 	short unsigned int primer_dia_anio;
-    short int dia_ingresado;
-     int var_aux;
+	short int dia_ingresado;
+	int var_aux;
 
 	primer_dia_anio = DOMINGO;                /* todas las opciones son las de enum*/
 
@@ -48,7 +48,7 @@ int main (void)
 		return EXIT_FAILURE;
 	}
 
-   if( !( dia_ingresado =(dia_ingresado % 7) ) ){         /* dia_ingresado pasa a ser la posicion del dia */
+	if( !( dia_ingresado =(dia_ingresado % 7) ) ){         			 /* dia_ingresado pasa a ser la posicion del dia */
 		dia_ingresado  += 7;                         					 /* tomando el orden definido en enum*/
 	}                                                                                   /* suma 7 para considerar la posicion 0 como 7*/
 
@@ -87,7 +87,7 @@ int main (void)
 			puts(MSJ_DIA_SABADO) ;
 			break;
 
-	    default :
+	    	default :
 			printf("%s: %s\n",MSJ_ERROR_PREFIJO,MSJ_ERROR_CAMBIO_INESPERADO);
 	}
 
