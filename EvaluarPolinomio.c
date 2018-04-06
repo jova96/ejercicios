@@ -24,7 +24,10 @@ int main(void)
     double coef[CANTIDAD_COEF];
 
 	puts(MSJ_PRESNTACION_PROGRAMA);
+
 	for(var_conteo = 0 ; var_conteo < CANTIDAD_COEF ; var_conteo++){
+
+		/*Ingreso de coeficientes del polinomio*/
 		printf("%s a%i:",MSJ_INGRESO_COEF,var_conteo);
 		if( scanf("%lf",&coef[var_conteo] ) != 1){
 			fprintf(stderr,"%s: %s\n",MSJ_ERROR_PREFIJO,MSJ_ERROR_INGRESO);
@@ -36,6 +39,7 @@ int main(void)
 		}
 	}
 
+	/*Ingreso de valor donde sera evaluado el polinomio*/
 	printf("%s:",MSJ_INGRESO_EVALUAR_POLINOMIO);
 	if( scanf("%lf",&valor_polinomio) != 1){
 		fprintf(stderr,"%s: %s\n",MSJ_ERROR_PREFIJO,MSJ_ERROR_INGRESO);
@@ -45,6 +49,7 @@ int main(void)
 		fprintf(stderr,"%s: %s\n",MSJ_ERROR_PREFIJO,MSJ_ERROR_INGRESO);
 		return EXIT_FAILURE;
 	}
+
 
 	for(var_conteo = 0 , pol_evaluado = 0; var_conteo < CANTIDAD_COEF ; var_conteo++){
 		if(potencia_positiva(valor_polinomio,var_conteo,potencia) == ST_OK){
@@ -67,6 +72,8 @@ status_t limpiar_buffer(void)
 
 	int var_aux;
 
+	/*Lee el siguiente caracter que no toma scanf y verifica que sea un \n o EOF , de caso contrario*/
+	/*ingreso "algo" que no es un numero*/
 	if( ( var_aux = getchar() ) == '\n' || var_aux == EOF ){
 		return ST_OK;
 	}
@@ -76,7 +83,7 @@ status_t limpiar_buffer(void)
 }
 
 
-
+/*solo puede calcular la potencia positiva de un numero*/
 status_t potencia_positiva(double base , int exponente , double potencia[])
 {
 	size_t var_conteo;
