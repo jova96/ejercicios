@@ -90,6 +90,7 @@ int main(void)
 		}
 
         puts(MSJ_INGRESO_MONTO_TOTAL_POR_COMPRA);
+
 		if( ( scanf("%f",&monto_combustible_parcial) ) != 1){
 			fprintf(stderr,"%s: %s\n",MSJ_ERROR_PREFIJO,MSJ_ERROR_INGRESO);
 			return EXIT_FAILURE;
